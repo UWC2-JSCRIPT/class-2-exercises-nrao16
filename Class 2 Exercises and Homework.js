@@ -68,6 +68,8 @@ myEmail = 'abc@_test.com';
 console.log(emailRegex.test());
 myEmail = ' abc@test.com '
 console.log(emailRegex.test(myEmail));
+myEmail = `abc@ mall`;
+console.log(emailRegex.test(myEmail));
 
 // 7. You are given an assignmentDate as a string in the format "month/day/year"
 // i.e. '1/21/2019' - but this could be any date.
@@ -106,7 +108,7 @@ const months = [
 ];
 const [dueDateMonth, dueDateDate, dueDateFullYear] = [dueDate.getMonth(), dueDate.getDate(), dueDate.getFullYear()];
 
-const timeTag = `<time datetime="${dueDateFullYear}-${dueDateMonth+1}-${dueDateDate}">${months[dueDateMonth]} ${dueDateDate}, ${dueDateFullYear}</time>`;
+const timeTag = `<time datetime="${dueDateFullYear}-${(dueDateMonth+1).toString().padStart(2,'0')}-${(dueDateDate).toString().padStart(2,'0')}">${months[dueDateMonth]} ${dueDateDate}, ${dueDateFullYear}</time>`;
 
 // 10. log this value using console.log
 console.log(`time tag: ${timeTag}`);
